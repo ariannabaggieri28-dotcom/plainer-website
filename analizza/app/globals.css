@@ -1,0 +1,150 @@
+/* Token del design system Plainer v1 — stessi valori del sito. */
+:root {
+  --bg: #f2f1ee;
+  --surface: #fcfcfb;
+  --sunken: #eceae5;
+  --line: #e3e1db;
+  --line-strong: #d8d6cf;
+  --ink: #111111;
+  --text: #2a2a27;
+  --muted: #6b6b66;
+  --accent: #ff5c22;
+  --accent-deep: #e6420c;
+  --accent-text: #c23c10;
+  --accent-tint: rgba(255, 92, 34, 0.12);
+  --accent-ring: rgba(255, 92, 34, 0.45);
+  --on-accent: #111111;
+  --ok: #1f7a42;
+  --ok-bg: #e5f2e8;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', ui-monospace, monospace;
+  --r-sm: 14px;
+  --r-md: 18px;
+  --r-lg: 22px;
+  --r-pill: 999px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.contenitore {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 16px 80px;
+}
+
+h1 {
+  color: var(--ink);
+  font-size: clamp(30px, 6vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 24px 0 12px;
+}
+
+.sotto { font-size: 17px; line-height: 1.55; max-width: 46ch; }
+
+.nota {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.scheda {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  margin-top: 32px;
+}
+
+.campo {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.campo input[type='email'] {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  padding: 12px 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.campo input:focus-visible {
+  outline: 2px solid var(--accent-ring);
+  outline-offset: 1px;
+}
+
+.bottone {
+  font: inherit;
+  font-weight: 600;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: #fff;
+  cursor: pointer;
+}
+
+.bottone:hover { background: #000; }
+.bottone:disabled { opacity: 0.55; cursor: default; }
+
+.consenso {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.consenso input { margin-top: 3px; accent-color: var(--ink); }
+
+.esito-ok {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: var(--r-sm);
+  background: var(--ok-bg);
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.esito-errore {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: var(--r-sm);
+  background: var(--accent-tint);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.etichetta {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-pill);
+  padding: 5px 12px;
+}
+
+a { color: var(--ink); }
+
+@media (max-width: 480px) {
+  .campo { flex-direction: column; }
+  .bottone { width: 100%; }
+}
