@@ -13,8 +13,11 @@ costruita seguendo `docs/ANALIZZA-STRATEGIA-E-PROMPT-V3.md` (sessioni 1–7).
 
 - **Next.js (App Router, TS)** su Vercel, root di questo progetto: `analizza/`.
 - **Supabase** progetto `plainer` (`fxhspbatfipellryixjy`), schema dedicato
-  `analizza` — non esposto via API pubblica, RLS deny-all, si passa solo dalle
-  route server con la service key. Bucket privato `analizza-preventivi`.
+  `analizza` — RLS deny-all e nessun privilegio ad `anon`/`authenticated`:
+  si passa solo dalle route server con la service key. Lo schema è esposto a
+  PostgREST via `alter role authenticator set pgrst.db_schemas` (serve a
+  supabase-js); se dal dashboard si salva Settings → API, riaggiungere
+  `analizza` tra gli "Exposed schemas". Bucket privato `analizza-preventivi`.
 - **Due livelli di dati**: il fascicolo personale (`analyses`, con email,
   file cancellato entro 7 giorni) e l'estratto per l'AI (`quote_items`,
   ripulito dai dati personali alla nascita, scollegato dalla persona al
